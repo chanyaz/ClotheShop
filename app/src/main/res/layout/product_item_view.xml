@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/product_column_height">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:background="@color/colorPrimary"
+        android:id="@+id/productView"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/product_gradient_height"
+        android:alpha="0.6"
+        android:background="@drawable/product_gradient"
+        android:layout_gravity="bottom"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:weightSum="3"
+        android:layout_margin="@dimen/product_info_margin"
+        android:layout_gravity="bottom">
+
+        <com.valgood.clotheshop.ui.custom.CustomFontTextView
+            android:id="@+id/productName"
+            style="@style/product_item"
+            app:font="@string/roboto_medium"/>
+
+        <com.valgood.clotheshop.ui.custom.CustomFontTextView
+            android:id="@+id/productDescription"
+            style="@style/product_item"
+            android:textSize="12sp"
+            app:font="@string/roboto_medium"/>
+
+        <com.valgood.clotheshop.ui.custom.CustomFontTextView
+            android:id="@+id/productPrice"
+            style="@style/product_item"
+            app:font="@string/roboto_medium"/>
+    </LinearLayout>
+
+    <com.valgood.clotheshop.ui.custom.CustomFontTextView
+        android:id="@+id/productNewDiscount"
+        style="@style/product_item_new_discount_text"
+        android:text="@string/product_text_new"/>
+
+</FrameLayout>

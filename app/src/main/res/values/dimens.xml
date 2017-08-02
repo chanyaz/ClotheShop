@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="feature_item_layoutextra_height">27dp</dimen>
+    <dimen name="feature_item_layoutextra_textsize">12sp</dimen>
+    <dimen name="card_margin">0dp</dimen>
+    <dimen name="card_corners_radius">0dp</dimen>
+    <dimen name="tabs_text_size">14sp</dimen>
+    <dimen name="feature_title_text_size">16sp</dimen>
+    <dimen name="feature_subtitle_text_size">12sp</dimen>
+    <dimen name="material_drawer_account_settings_size">20dp</dimen>
+    <dimen name="material_drawer_account_header_name_text">18sp</dimen>
+    <dimen name="product_spacing_and_margins">16dp</dimen>
+    <dimen name="product_column_width">156dp</dimen>
+    <dimen name="product_column_height">234dp</dimen>
+    <dimen name="product_gradient_height">108dp</dimen>
+    <dimen name="product_info_margin">10dp</dimen>
+    <dimen name="product_info_text_size">16sp</dimen>
+    <dimen name="product_item_new_text_width">47dp</dimen>
+    <dimen name="product_item_new_text_padding_start">10dp</dimen>
+    <dimen name="product_item_new_text_padding_end">11dp</dimen>
+    <dimen name="product_item_new_text_padding_top">5dp</dimen>
+    <dimen name="product_item_new_text_padding_bottom">6dp</dimen>
+    <dimen name="product_item_new_text_size">12sp</dimen>
+    <dimen name="product_item_new_text_margin_top">10dp</dimen>
+
+</resources>

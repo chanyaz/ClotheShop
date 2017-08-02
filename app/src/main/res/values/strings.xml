@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ClotheShop</string>
+    <string name="roboto_regular" translatable="false">fonts/roboto_regular.ttf</string>
+    <string name="roboto_medium" translatable="false">fonts/roboto_medium.ttf</string>
+    <string name="tab_feature">Features</string>
+    <string name="tab_style_notes">Style Notes</string>
+    <string name="item_category">Category</string>
+    <string name="menu_categories">Categories</string>
+    <string name="menu_cart">Cart</string>
+    <string name="item_you">You</string>
+    <string name="item_women">Women</string>
+    <string name="item_men">Men</string>
+    <string name="item_kids">Kids</string>
+    <string name="item_wish_list">Wish List</string>
+    <string name="item_last_seen">Last Seen</string>
+    <string name="item_orders">Orders</string>
+    <string name="title_activity_product_by_feature">ProductByFeatureActivity</string>
+    <string name="product_text_new">NEW</string>
+    <string name="product_sort_tab">Sort &#x25BC;</string>
+    <string name="product_filter_tab">Filter &#x25BC;</string>
+    <string name="product_text_discount">SALE \n %1$d%%</string>
+
+</resources>

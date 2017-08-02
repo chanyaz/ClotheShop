@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.valgood.clotheshop.ProductByFeatureActivity"
+    android:background="@color/colorLightBackground">
+
+    <android.support.design.widget.AppBarLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:elevation="8dp"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <include
+        layout="@layout/toolbar_product_list"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:paddingTop="16dp"
+            android:paddingBottom="16dp"
+            android:background="@color/colorPrimary">
+
+            <com.valgood.clotheshop.ui.custom.CustomFontTextView
+                android:id="@+id/sort_tab"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/product_sort_tab"
+                app:font="@string/roboto_medium"
+                android:textColor="@color/colorAccent"
+                android:textSize="14sp"/>
+            <com.valgood.clotheshop.ui.custom.CustomFontTextView
+                android:id="@+id/filter_tab"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                app:font="@string/roboto_medium"
+                android:text="@string/product_filter_tab"
+                android:textSize="14sp"
+                android:textColor="@color/colorAccent" />
+
+        </LinearLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mainContent"
+        style="@style/product_main_content">
+    </LinearLayout>
+
+    <include layout="@layout/action_search_fab"/>
+
+</android.support.design.widget.CoordinatorLayout>

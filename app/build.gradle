@@ -1,0 +1,50 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
+
+android {
+    compileSdkVersion rootProject.ext.compileSdkVersion as int
+    buildToolsVersion rootProject.ext.buildToolsVersion
+
+    defaultConfig {
+        applicationId "com.valgood.clotheshop"
+        minSdkVersion rootProject.ext.minSdkVersion as int
+        targetSdkVersion rootProject.ext.targetSdkVersion as int
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile rootProject.ext.appcompat
+    compile rootProject.ext.kotlin
+    compile rootProject.ext.cardview
+    compile rootProject.ext.design
+    compile rootProject.ext.constraintlayout
+    compile rootProject.ext.rxjava
+    compile rootProject.ext.rxandroid
+    compile rootProject.ext.glide
+    compile rootProject.ext.glideTransformations
+    compile rootProject.ext.materialDrawerVersion
+    compile rootProject.ext.googleMaterialTypeFace
+    compile rootProject.ext.fontAwesome
+    testCompile rootProject.ext.junit
+    compile project(':backendless')
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+}
+repositories {
+    mavenCentral()
+}
