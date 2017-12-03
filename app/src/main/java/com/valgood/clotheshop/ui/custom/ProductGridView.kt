@@ -9,12 +9,11 @@ import com.valgood.clotheshop.R
 import com.valgood.clotheshop.adapter.FeatureRecyclerViewAdapter
 import com.valgood.clotheshop.adapter.ProductGridViewAdapter
 import com.valgood.clotheshop.backendless.data.DataManager
-import com.valgood.clotheshop.backendless.model.Feature
-import com.valgood.clotheshop.backendless.model.FeatureCategoryResponse
-import com.valgood.clotheshop.backendless.model.Product
-import com.valgood.clotheshop.backendless.model.ProductResponse
+import com.valgood.clotheshop.backendless.model.*
 import com.valgood.clotheshop.backendless.utils.Constants
+import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.functions.Consumer
 import java.util.ArrayList
 
 /**
@@ -58,7 +57,7 @@ class ProductGridView(context: Context) : GridView(context) {
      * @param data
      */
     private fun processResponse(data: ProductResponse) {
-        var localAdapter = ProductGridViewAdapter(context, ArrayList<Product>())
+        var localAdapter = ProductGridViewAdapter(context, ArrayList())
         if (data.code == Constants.Companion.SUCCESS_CODE) {
             localAdapter.setGridData(data.products as MutableList<Product>)
         } else {

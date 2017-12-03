@@ -23,10 +23,10 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ProductByFeatureActivity"
-            android:label="@string/title_activity_product_by_feature"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".ProductByFeatureActivity"/>
+        <activity android:name=".ProductDetailActivity"/>
+
+        <meta-data android:name="net.hockeyapp.android.appIdentifier" android:value="${HOCKEYAPP_APP_ID}" />
     </application>
 
 </manifest>

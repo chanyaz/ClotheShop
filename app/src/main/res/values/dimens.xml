@@ -10,7 +10,13 @@
     <dimen name="feature_subtitle_text_size">12sp</dimen>
     <dimen name="material_drawer_account_settings_size">20dp</dimen>
     <dimen name="material_drawer_account_header_name_text">18sp</dimen>
+    <dimen name="product_detail_grid_view_height">350dp</dimen>
+    <dimen name="product_detail_grid_view_width">150dp</dimen>
+    <dimen name="product_detail_pictures_margin_left">15dp</dimen>
+    <dimen name="product_detail_pictures_spacing_and_margins">6dp</dimen>
     <dimen name="product_spacing_and_margins">16dp</dimen>
+    <dimen name="product_detail_pic_width">105dp</dimen>
+    <dimen name="product_detail_pic_height">200dp</dimen>
     <dimen name="product_column_width">156dp</dimen>
     <dimen name="product_column_height">234dp</dimen>
     <dimen name="product_gradient_height">108dp</dimen>
@@ -23,5 +29,8 @@
     <dimen name="product_item_new_text_padding_bottom">6dp</dimen>
     <dimen name="product_item_new_text_size">12sp</dimen>
     <dimen name="product_item_new_text_margin_top">10dp</dimen>
-
+    <dimen name="product_item_recycler_view_margin_top">-100dp</dimen>
+    <dimen name="text_size_paragraph2">15.0sp</dimen>
+    <dimen name="product_details_text_size">14sp</dimen>
+    <dimen name="product_sub_details_text_size">12sp</dimen>
 </resources>

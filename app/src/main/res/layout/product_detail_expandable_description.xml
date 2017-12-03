@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!--<de.zalando.mobile.ui.view.ZalandoTextView -->
+        <!--android:textAppearance="@style/SizeParagraph2.Black" -->
+        <!--android:textStyle="bold" -->
+        <!--android:ellipsize="end" -->
+        <!--android:gravity="left" -->
+        <!--android:id="@id/pdp_detail_box_description_header" -->
+        <!--android:paddingLeft="@dimen/pdp_margin_left_right" -->
+        <!--android:paddingTop="@dimen/default_margin" -->
+        <!--android:paddingRight="@dimen/pdp_margin_left_right" -->
+        <!--android:paddingBottom="@dimen/default_margin" -->
+        <!--android:layout_width="fill_parent" -->
+        <!--android:layout_height="wrap_content" -->
+        <!--android:text="@string/pdp_description" -->
+        <!--android:maxLines="1" -->
+        <!--zalando:fontType="bold" -->
+        <!--style="@style/PdpBackgroundViewHolderContainer" />-->
+    <!---->
+    <!--<ImageView -->
+        <!--android:id="@id/pdp_detail_box_description_arrow" -->
+        <!--android:paddingTop="@dimen/default_padding" -->
+        <!--android:paddingBottom="@dimen/default_margin" -->
+        <!--android:layout_width="wrap_content" -->
+        <!--android:layout_height="wrap_content" -->
+        <!--android:layout_marginRight="@dimen/pdp_margin_left_right" -->
+        <!--android:src="@drawable/ic_order_list_item_arrow" -->
+        <!--android:layout_alignBottom="@id/pdp_detail_box_description_header" -->
+        <!--android:layout_alignParentRight="true" android:rotation="90.0" />-->
+    <!---->
+    <!--<de.zalando.mobile.ui.pdp.details.image.adapter.view.PdpDescriptionView -->
+        <!--android:id="@id/pdp_detail_box_description_view" -->
+        <!--android:background="@color/white" -->
+        <!--android:layout_width="fill_parent" -->
+        <!--android:layout_height="wrap_content" -->
+        <!--android:layout_below="@id/pdp_detail_box_description_arrow" />-->
+
+    <RelativeLayout
+        android:id="@+id/descriptionContainer"
+        style="@style/ProductDescriptionBackgroundViewHolderContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp">
+
+        <com.valgood.clotheshop.ui.custom.CustomFontTextView
+            android:id="@+id/expand_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/SizeParagraph2.Black"
+            app:font="@string/roboto_bold"
+            android:padding="5dp"
+            android:ellipsize="end"
+            android:gravity="start"
+            android:text="Description" />
+
+        <ImageView
+            android:id="@+id/detail_box_description_arrow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="5dp"
+            android:rotation="90.0"
+            android:src="@drawable/ic_order_list_item_arrow" />
+
+    </RelativeLayout>
+    <net.cachapa.expandablelayout.ExpandableLayout
+        android:id="@+id/expandable_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:el_duration="100"
+        app:el_parallax="0.5"
+        app:el_expanded="false">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/detailsContainer"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"/>
+
+    </net.cachapa.expandablelayout.ExpandableLayout>
+</LinearLayout>

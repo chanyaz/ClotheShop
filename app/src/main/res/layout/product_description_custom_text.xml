@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="wrap_content"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:padding="5dp">
+
+    <com.valgood.clotheshop.ui.custom.CustomFontTextView
+        android:id="@+id/detail_key"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:elevation="4dp"
+        android:textSize="@dimen/product_details_text_size"
+        android:gravity="start"
+        app:font="@string/roboto_bold"
+        tools:text="Largo"
+        android:textColor="@android:color/black" />
+
+    <com.valgood.clotheshop.ui.custom.CustomFontTextView
+        android:id="@+id/detail_value"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clipToPadding="false"
+        android:elevation="4dp"
+        android:textSize="@dimen/product_sub_details_text_size"
+        android:gravity="start"
+        app:font="@string/roboto_light"
+        tools:text="Clasico"
+        android:textColor="@android:color/black" />
+
+</LinearLayout>

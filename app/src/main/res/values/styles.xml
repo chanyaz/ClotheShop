@@ -124,4 +124,20 @@
     <style name="AppTheme.NoActionBar.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 
     <style name="AppTheme.NoActionBar.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+    <!--<style name="Widget.Design.BottomSheet.Modal" parent="@android:style/Widget">-->
+        <!--<item name="android:background">?android:colorBackground</item>-->
+        <!--<item name="behavior_peekHeight">auto</item>-->
+        <!--<item name="behavior_hideable">true</item>-->
+        <!--<item name="behavior_skipCollapsed">false</item>-->
+    <!--</style>-->
+    <style name="SizeParagraph2" parent="@android:style/TextAppearance">
+        <item name="android:textSize">@dimen/text_size_paragraph2</item>
+    </style>
+    <style name="SizeParagraph2.Black" parent="@style/SizeParagraph2">
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+    <style name="ProductDescriptionBackgroundViewHolderContainer">
+        <item name="android:background">@drawable/product_details_box_selectable_item_selector</item>
+    </style>
 </resources>

@@ -24,7 +24,7 @@ class TypeFaceSpan
     init {
         mTypeface = sTypefaceCache.get(typefaceName)
 
-        if (mTypeface == null) {
+        mTypeface = mTypeface ?: kotlin.run {
             mTypeface = Typeface.createFromAsset(context.applicationContext
                     .assets, String.format("%s", typefaceName))
 
@@ -34,17 +34,17 @@ class TypeFaceSpan
     }
 
     override fun updateMeasureState(p: TextPaint) {
-        p.typeface = mTypeface
-
-        // Note: This flag is required for proper typeface rendering
-        p.flags = p.flags or Paint.SUBPIXEL_TEXT_FLAG
+        p.apply {
+            typeface = mTypeface
+            flags = flags or Paint.SUBPIXEL_TEXT_FLAG
+        }
     }
 
     override fun updateDrawState(tp: TextPaint) {
-        tp.typeface = mTypeface
-
-        // Note: This flag is required for proper typeface rendering
-        tp.flags = tp.flags or Paint.SUBPIXEL_TEXT_FLAG
+        tp.apply {
+            typeface = mTypeface
+            flags = flags or Paint.SUBPIXEL_TEXT_FLAG
+        }
     }
 
     companion object {

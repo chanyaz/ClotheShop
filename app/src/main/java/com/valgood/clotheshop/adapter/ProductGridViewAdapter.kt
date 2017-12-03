@@ -1,6 +1,7 @@
 package com.valgood.clotheshop.adapter
 
 import android.content.Context
+import android.support.v7.app.AppCompatActivity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,19 +10,21 @@ import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.valgood.clotheshop.ProductDetailActivity
 import com.valgood.clotheshop.R
 import com.valgood.clotheshop.backendless.model.Product
 import jp.wasabeef.glide.transformations.RoundedCornersTransformation
-import java.text.DecimalFormat
-import java.text.DecimalFormatSymbols
 import java.text.NumberFormat
 import java.util.*
+import android.R.array
+
+
 
 /**
  * Adapter to load the information regarding each product
  */
 class ProductGridViewAdapter (context: Context,
-                              val data: MutableList<Product>) :
+                              val data: ArrayList<Product>) :
         ArrayAdapter<Product>(context, R.layout.product_item_view, data) {
 
     /**
@@ -33,10 +36,10 @@ class ProductGridViewAdapter (context: Context,
         notifyDataSetChanged()
     }
 
-    fun clearGridData() {
-        data.clear()
-        notifyDataSetChanged()
-    }
+//    fun clearGridData() {
+//        data.clear()
+//        notifyDataSetChanged()
+//    }
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
         var row : View? = convertView
@@ -51,24 +54,32 @@ class ProductGridViewAdapter (context: Context,
         }
 
         val product = data[position]
-        listViewHolder.productName.text = product.name
-        listViewHolder.productDescription.text = product.description
-        listViewHolder.productPrice.text = getFormattedPrice(product.price, product.currency)
-
-        if (product.discount > 0) {
-            listViewHolder.productNewDiscount.text = context.getString(R.string.product_text_discount, product.discount)
-        } else if (!product.new) {
-            listViewHolder.productNewDiscount.visibility = View.INVISIBLE
+        listViewHolder.apply {
+            productName.text = product.name
+            productDescription.text = product.description
+            productPrice.text = getFormattedPrice(product.price, product.currency)
         }
 
+        when {
+            product.discount > 0  -> listViewHolder.productNewDiscount.text =
+                                        context.getString(R.string.product_text_discount,
+                                                          product.discount)
+            !product.new -> listViewHolder.productNewDiscount.visibility = View.INVISIBLE
+        }
+
+
         val context = listViewHolder.imageInListView.context
-        val transformation = RoundedCornersTransformation(context, 3, 3)
         Glide.with(context)
-             .load(product.picture)
-             .bitmapTransform(transformation)
+             .load(product.galleryOne)
+             .bitmapTransform(RoundedCornersTransformation(context, 3, 3))
+             .override(300,300)
              .diskCacheStrategy(DiskCacheStrategy.RESULT)
              .into(listViewHolder.imageInListView)
 
+        row?.setOnClickListener({
+            ProductDetailActivity.Companion.navigate(parent.context as AppCompatActivity,
+                                                     listViewHolder.imageInListView, data)
+        })
         return row
     }
 
@@ -85,10 +96,11 @@ class ProductGridViewAdapter (context: Context,
     override fun getItemId(position: Int): Long = position.toLong()
 
     internal class ViewHolder(row: View?) {
-        var imageInListView: ImageView = row?.findViewById<ImageView>(R.id.productView) as ImageView
-        var productName: TextView = row?.findViewById<TextView>(R.id.productName) as TextView
-        var productDescription: TextView = row?.findViewById<TextView>(R.id.productDescription) as TextView
-        var productPrice: TextView = row?.findViewById<TextView>(R.id.productPrice) as TextView
-        var productNewDiscount: TextView = row?.findViewById<TextView>(R.id.productNewDiscount) as TextView
+        var imageInListView: ImageView = row?.findViewById(R.id.productView) as ImageView
+        var productName: TextView = row?.findViewById(R.id.productName) as TextView
+        var productDescription: TextView = row?.findViewById(R.id.productDescription) as TextView
+        var productPrice: TextView = row?.findViewById(R.id.productPrice) as TextView
+        var productNewDiscount: TextView = row?.findViewById(R.id.productNewDiscount) as TextView
     }
+
 }

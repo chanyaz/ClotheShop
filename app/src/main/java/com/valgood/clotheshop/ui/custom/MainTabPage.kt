@@ -19,6 +19,10 @@ import com.valgood.clotheshop.backendless.utils.Constants
 import io.reactivex.android.schedulers.AndroidSchedulers
 
 import java.util.ArrayList
+import android.view.animation.AnimationUtils
+import android.view.animation.LayoutAnimationController
+
+
 
 
 /**
@@ -54,6 +58,10 @@ class MainTabPage : RecyclerView {
         setHasFixedSize(true)
         setBackgroundColor(ContextCompat.getColor(context, R.color.colorPrimary))
         clipToPadding = false
+        //adding some enter animation
+        val resId = R.anim.layout_animation_fall_down
+        val animation = AnimationUtils.loadLayoutAnimation(context, resId)
+        layoutAnimation = animation
 
         val padingBottom = (resources.getDimension(R.dimen.card_margin) / resources.displayMetrics.density).toInt()
 

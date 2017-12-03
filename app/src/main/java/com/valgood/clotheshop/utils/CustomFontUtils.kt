@@ -6,7 +6,6 @@ import android.text.Spannable
 import android.text.SpannableString
 import android.text.style.ForegroundColorSpan
 import android.util.AttributeSet
-import android.util.Log
 import android.widget.TextView
 
 import com.valgood.clotheshop.R
@@ -39,22 +38,20 @@ object CustomFontUtils {
      * @param context
      */
     fun setCustomFont(textView: TextView, font: String?, context: Context) {
-        if (font == null) {
-            return
+        font?.let {
+            FontCache[font, context]?.let {
+                textView.typeface = it
+            }
         }
-        val tf = FontCache[font, context]
-        if (tf != null) {
-            textView.typeface = tf
-        } else {
-            Log.e(CustomFontUtils::class.java.name, "Typeface $font is null")
-        }
+
     }
 
     fun formatTitleBar(context: Context, text: String, fontType: String) : SpannableString {
-        val spanTitle = SpannableString(text)
-        spanTitle.setSpan (TypeFaceSpan(context, fontType), 0, spanTitle.length,
-                Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
-        spanTitle.setSpan(ForegroundColorSpan(ContextCompat.getColor( context, R.color.colorAccent)), 0, spanTitle.length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
-        return spanTitle
+        return SpannableString(text).apply {
+            setSpan(TypeFaceSpan(context, fontType), 0, length,
+                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE)
+            setSpan(ForegroundColorSpan(ContextCompat.getColor( context, R.color.colorAccent)),
+                    0, length, Spannable.SPAN_INCLUSIVE_INCLUSIVE)
+        }
     }
 }

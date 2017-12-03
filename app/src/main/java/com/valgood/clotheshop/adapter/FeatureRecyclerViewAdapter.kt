@@ -5,25 +5,23 @@ package com.valgood.clotheshop.adapter
  */
 
 import android.annotation.TargetApi
-import android.app.Activity
-import android.content.Context
-import android.content.Intent
 import android.os.Build
 import android.os.Bundle
 import android.support.v7.widget.CardView
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
 import com.valgood.clotheshop.ProductByFeatureActivity
 
 import com.valgood.clotheshop.R
 import com.valgood.clotheshop.backendless.model.Feature
 import com.valgood.clotheshop.ui.custom.FeatureImageView
-import com.valgood.clotheshop.utils.Utils
+import com.valgood.clotheshop.utils.PRODUCT_DESCRIPTION_KEY
+import com.valgood.clotheshop.utils.PRODUCT_NAME_KEY
+import com.valgood.clotheshop.utils.PRODUCT_OBJECT_ID_KEY
+import com.valgood.clotheshop.utils.openActivity
 
 import java.util.ArrayList
-import kotlin.reflect.KClass
 
 /**
  * Adapter containing the elements shown inside the recycler view under every tab.
@@ -46,17 +44,17 @@ class FeatureRecyclerViewAdapter(contents: List<Feature>) :
     }
 
     override fun onBindViewHolder(holder: SectionViewHolder, position: Int) {
-        holder.imageSectionView.setData(mContents[position])
-        holder.imageSectionView.setOnClickListener({
-            val featureInfo = mContents[position]
-            val intent = Intent(it.context, ProductByFeatureActivity::class.java)
-            val bundle = Bundle()
-            bundle.putString(Utils.PRODUCT_OBJECT_ID_KEY, featureInfo.objectId)
-            bundle.putString(Utils.PRODUCT_NAME_KEY, featureInfo.title)
-            bundle.putString(Utils.PRODUCT_DESCRIPTION_KEY, featureInfo.description)
-            intent.putExtras(bundle)
-            it.context.startActivity(intent)
-        })
+        holder.imageSectionView.apply {
+            setData(mContents[position])
+            setOnClickListener({
+                val bundle = Bundle().apply {
+                    putString(PRODUCT_OBJECT_ID_KEY, mContents[position].objectId)
+                    putString(PRODUCT_NAME_KEY, mContents[position].title)
+                    putString(PRODUCT_DESCRIPTION_KEY, mContents[position].description)
+                }
+                openActivity(it.context, ProductByFeatureActivity::class, bundle).invoke()
+            })
+        }
     }
 
     override fun onDetachedFromRecyclerView(recyclerView: RecyclerView?) {

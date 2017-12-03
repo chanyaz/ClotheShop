@@ -14,6 +14,7 @@ android {
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        manifestPlaceholders = [HOCKEYAPP_APP_ID: "28827604c23e4d2088e2591d5fe9460b"]
     }
     buildTypes {
         release {
@@ -21,6 +22,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    buildToolsVersion '26.0.2'
 }
 
 dependencies {
@@ -30,9 +32,10 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile rootProject.ext.appcompat
+    compile rootProject.ext.design
+    compile rootProject.ext.palette
     compile rootProject.ext.kotlin
     compile rootProject.ext.cardview
-    compile rootProject.ext.design
     compile rootProject.ext.constraintlayout
     compile rootProject.ext.rxjava
     compile rootProject.ext.rxandroid
@@ -41,6 +44,10 @@ dependencies {
     compile rootProject.ext.materialDrawerVersion
     compile rootProject.ext.googleMaterialTypeFace
     compile rootProject.ext.fontAwesome
+    compile rootProject.ext.hockeyApp
+    compile 'com.github.ybq:parallaxviewpager:2.0.0'
+    compile 'net.cachapa.expandablelayout:expandablelayout:2.9.2'
+    compile 'me.mvdw.recyclerviewmergeadapter:recyclerviewmergeadapter:2.0.0'
     testCompile rootProject.ext.junit
     compile project(':backendless')
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"

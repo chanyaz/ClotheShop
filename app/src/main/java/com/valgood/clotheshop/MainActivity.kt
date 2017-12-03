@@ -32,21 +32,10 @@ import co.zsmb.materialdrawerkt.draweritems.badge
 import com.mikepenz.iconics.IconicsDrawable
 import com.valgood.clotheshop.utils.CustomFontUtils
 import com.valgood.clotheshop.utils.ImageLoading
-import com.valgood.clotheshop.utils.TypeFaceSpan
 import kotlinx.android.synthetic.main.toolbar.*
-import kotlin.reflect.KClass
-import android.support.v4.view.MenuItemCompat.getActionView
-import android.widget.FrameLayout
-import android.support.v4.view.MenuItemCompat.getActionView
 import com.mikepenz.fontawesome_typeface_library.FontAwesome
-import com.mikepenz.iconics.context.IconicsContextWrapper
-
-
-
-
-
-
-
+import net.hockeyapp.android.CrashManager
+import net.hockeyapp.android.UpdateManager
 
 class MainActivity : AppCompatActivity() {
 
@@ -59,6 +48,35 @@ class MainActivity : AppCompatActivity() {
         setupToolbar()
         setupDrawer(savedInstanceState)
         setupMainTabViewPager()
+        checkForUpdates()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        checkForCrashes()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        unregisterManagers()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        unregisterManagers()
+    }
+
+    fun checkForCrashes() {
+        CrashManager.register(this)
+    }
+
+    fun checkForUpdates() {
+        // Remove this for store builds!
+        UpdateManager.register(this)
+    }
+
+    fun unregisterManagers() {
+        UpdateManager.unregister()
     }
 
     private fun setupDrawer(savedInstanceState: Bundle?) {
