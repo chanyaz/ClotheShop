@@ -22,9 +22,6 @@ import java.util.ArrayList
 import android.view.animation.AnimationUtils
 import android.view.animation.LayoutAnimationController
 
-
-
-
 /**
  * Custom View used for the ViewPager's Pages in MainActivity (Feature, Style Notes)
  */
@@ -97,14 +94,13 @@ class MainTabPage : RecyclerView {
      * @param data
      */
     private fun processResponse(data: FeatureCategoryResponse) {
-        var localAdapter = FeatureRecyclerViewAdapter(ArrayList<Feature>())
-        if (data.code == Constants.Companion.SUCCESS_CODE) {
-            localAdapter = FeatureRecyclerViewAdapter(data.features)
-        } else {
-            //set error in toast
+        adapter = when(data.code) {
+            Constants.Companion.SUCCESS_CODE -> {
+                FeatureRecyclerViewAdapter(data.features)
+            } else -> {
+                FeatureRecyclerViewAdapter(ArrayList())
+            }
         }
-
-        adapter = localAdapter
     }
 }
 

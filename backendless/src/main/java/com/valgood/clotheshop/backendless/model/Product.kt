@@ -13,7 +13,7 @@ class Product() : Parcelable {
     lateinit var picture: String
     lateinit var currency: String
     lateinit var galleryOne: String
-    lateinit var details: List<ProductDetails>
+    var details: List<ProductDetails>? = null
     var discount = 0
     var new: Boolean = false
     var price: Double = 0.0

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/single_product_container"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:foreground="?selectableItemBackground">
+    <LinearLayout android:gravity="center_horizontal"
+                  android:orientation="vertical"
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent"
+                  android:layout_marginLeft="@dimen/recommendation_product_image_half_margin"
+                  android:layout_marginRight="@dimen/recommendation_product_image_half_margin">
+        <ImageView android:gravity="center"
+                   android:id="@+id/single_product_image"
+                   android:layout_width="@dimen/new_recommendation_product_image_width"
+                   android:layout_height="@dimen/new_recommendation_product_image_height"
+                   android:scaleType="centerInside" />
+        <Space android:layout_width="fill_parent"
+               android:layout_height="10.0dip" />
+        <com.valgood.clotheshop.ui.custom.CustomFontTextView
+               android:gravity="left"
+               android:id="@+id/single_product_title"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:singleLine="true"
+               app:font="@string/roboto_light"
+               style="@style/SizeParagraph3.MediumGray"
+               tools:text="Tommy Hilfiger"/>
+        <com.valgood.clotheshop.ui.custom.CustomFontTextView
+               android:gravity="left"
+               android:id="@+id/single_product_price"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               app:font="@string/roboto_bold"
+               style="@style/SizeParagraph3.Black"
+               tools:text="£204.99"/>
+    </LinearLayout>
+</FrameLayout>

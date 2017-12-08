@@ -18,20 +18,6 @@ class ProductDetailPicsGridViewAdapter (context: Context,
                               val data: MutableList<String>) :
         ArrayAdapter<String>(context, R.layout.product_detail_pics_view, data) {
 
-    /**
-     * Updates grid data and refresh grid items.
-     * @param gridData
-     */
-//    fun setGridData(gridData: List<String>) {
-//        gridData.forEach { data.add(it) }
-//        notifyDataSetChanged()
-//    }
-//
-//    fun clearGridData() {
-//        data.clear()
-//        notifyDataSetChanged()
-//    }
-
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
         var row : View? = convertView
         val listViewHolder: ViewHolder

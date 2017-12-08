@@ -8,8 +8,13 @@
     <color name="colorLightBackground">#D0D0D0</color>
     <color name="colorBackground">#FAFAFA</color>
     <color name="lightGrey">#9B9B9B</color>
+    <color name="black">#ff000000</color>
+    <color name="black_12a">#1f000000</color>
     <color name="black_16a">#2a000000</color>
     <color name="black_20a">#35000000</color>
     <color name="black_30a">#4d000000</color>
     <color name="grey_mercury">#ffe8e8e8</color>
+    <color name="grey_alto">#ffdbdbdb</color>
+    <color name="grey_silver">#ffacacac</color>
+    <color name="grey_tundora">#ff4c4c4c</color>
 </resources>

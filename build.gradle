@@ -43,6 +43,9 @@ ext {
     glideTransformationsVersion = '2.0.2'
     fontAwesomeVersion = '4.7.0.1'
     hockeyAppVersion = '4.1.4'
+    parallaxViewPagerVersion = '2.0.0'
+    expandableLayoutVersion = '2.9.2'
+    recyclerViewMergeAdapterVersion = '2.0.0'
     appcompat = "com.android.support:appcompat-v7:$support_version"
     palette = "com.android.support:palette-v7:$support_version"
     kotlin = "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
@@ -59,6 +62,9 @@ ext {
     fontAwesome = "com.mikepenz:fontawesome-typeface:$fontAwesomeVersion@aar"
     junit = "junit:junit:$junitVersion"
     hockeyApp = "net.hockeyapp.android:HockeySDK:$hockeyAppVersion"
+    parallaxViewPager =  "com.github.ybq:parallaxviewpager:$parallaxViewPagerVersion"
+    expandableLayout = "net.cachapa.expandablelayout:expandablelayout:$expandableLayoutVersion"
+    recyclerViewMergeAdapter = "me.mvdw.recyclerviewmergeadapter:recyclerviewmergeadapter:$recyclerViewMergeAdapterVersion"
 }
 task clean(type: Delete) {
     delete rootProject.buildDir

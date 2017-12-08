@@ -69,7 +69,7 @@ class ProductDetailPicsGridView(context: Context) : GridView(context) {
                 val productDetailsPictures = ArrayList<String>()
                 data.products
                         .forEach({product -> productDetailsPictures.add(product.galleryOne) })
-                        .let { adapter = ProductDetailPicsGridViewAdapter(context, productDetailsPictures) }
+                        .also { adapter = ProductDetailPicsGridViewAdapter(context, productDetailsPictures) }
             } else -> {
                 /**show toast**/
                adapter = ProductDetailPicsGridViewAdapter(context, ArrayList())

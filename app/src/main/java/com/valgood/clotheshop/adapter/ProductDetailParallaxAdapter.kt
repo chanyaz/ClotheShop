@@ -9,14 +9,11 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.valgood.clotheshop.R
 import com.valgood.clotheshop.backendless.model.Product
-import com.valgood.clotheshop.ui.custom.ProductDescriptionFullView
-import com.valgood.clotheshop.ui.custom.ProductDetailPicsGridView
-import com.valgood.clotheshop.ui.custom.ProductTitleDescriptionView
+import com.valgood.clotheshop.ui.custom.*
 import kotlinx.android.synthetic.main.product_detail_main_2.view.*
 import kotlinx.android.synthetic.main.toolbar_product_detail.view.*
 import kotlinx.android.synthetic.main.toolbar_product_detail_transparent.view.*
 import me.mvdw.recyclerviewmergeadapter.adapter.RecyclerViewMergeAdapter
-
 
 /**
  * Main Adapter for Product Detail Parallax Effect
@@ -25,10 +22,8 @@ class ProductDetailParallaxAdapter constructor(private var products: List<Produc
 
     override fun isViewFromObject(arg0: View, arg1: Any): Boolean = arg0 === arg1
 
-    override fun destroyItem(container: ViewGroup, position: Int,
-                             obj: Any) {
+    override fun destroyItem(container: ViewGroup, position: Int, obj: Any) =
         container.removeView(obj as View)
-    }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         val view = View.inflate(container.context, R.layout.product_detail_main_2, null).apply {
@@ -44,7 +39,6 @@ class ProductDetailParallaxAdapter constructor(private var products: List<Produc
 
     private fun loadTitleAndDescription(view: View, product: Product) {
         // Create a new merge adapter.
-
         view.toolbarProductDetailFixed.rootView.apply {
             title.text = product.name
             description.text = product.description
@@ -52,7 +46,8 @@ class ProductDetailParallaxAdapter constructor(private var products: List<Produc
         val mergeAdapter = RecyclerViewMergeAdapter().apply {
             addView(ProductTitleDescriptionView(view.context, product))
             addView(ProductDetailPicsGridView(view.context))
-            addView(ProductDescriptionFullView(view.context, product.details))
+            addView(ProductDescriptionFullView(view.context, product.objectId))
+            addView(ProductRecommendView(view.context))
         }
         view.product_details_recycler_view.apply {
             adapter = mergeAdapter
@@ -83,12 +78,11 @@ class ProductDetailParallaxAdapter constructor(private var products: List<Produc
         }
     }
 
-    private fun loadMainImage(view: View, imagePath: String) {
+    private fun loadMainImage(view: View, imagePath: String) =
         Glide.with(view.context)
                 .load(imagePath)
                 .diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(view.imageDetail)
-    }
 
     override fun getCount(): Int = products.size
 }

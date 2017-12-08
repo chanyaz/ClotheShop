@@ -27,20 +27,6 @@ class ProductGridViewAdapter (context: Context,
                               val data: ArrayList<Product>) :
         ArrayAdapter<Product>(context, R.layout.product_item_view, data) {
 
-    /**
-     * Updates grid data and refresh grid items.
-     * @param gridData
-     */
-    fun setGridData(gridData: List<Product>) {
-        data.addAll(gridData)
-        notifyDataSetChanged()
-    }
-
-//    fun clearGridData() {
-//        data.clear()
-//        notifyDataSetChanged()
-//    }
-
     override fun getView(position: Int, convertView: View?, parent: ViewGroup): View? {
         var row : View? = convertView
         val listViewHolder: ViewHolder

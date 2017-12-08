@@ -14,7 +14,7 @@
     <dimen name="product_detail_grid_view_width">150dp</dimen>
     <dimen name="product_detail_pictures_margin_left">15dp</dimen>
     <dimen name="product_detail_pictures_spacing_and_margins">6dp</dimen>
-    <dimen name="product_spacing_and_margins">16dp</dimen>
+    <dimen name="product_spacing_and_margins">10dp</dimen>
     <dimen name="product_detail_pic_width">105dp</dimen>
     <dimen name="product_detail_pic_height">200dp</dimen>
     <dimen name="product_column_width">156dp</dimen>
@@ -33,4 +33,14 @@
     <dimen name="text_size_paragraph2">15.0sp</dimen>
     <dimen name="product_details_text_size">14sp</dimen>
     <dimen name="product_sub_details_text_size">12sp</dimen>
+    <dimen name="recommendation_left_margin">16.0dip</dimen>
+    <dimen name="recommendation_vertical_space">20.0dip</dimen>
+    <dimen name="border_margin">10.0dip</dimen>
+    <dimen name="recommendation_product_image_half_margin">8.0dip</dimen>
+    <dimen name="new_recommendation_product_image_height">188.0dip</dimen>
+    <dimen name="new_recommendation_product_image_width">128.0dip</dimen>
+    <dimen name="new_recommendation_product_grid_view_height">200.0dip</dimen>
+    <dimen name="recommendation_product_image_height">110.0dip</dimen>
+    <dimen name="recommendation_product_image_width">76.0dip</dimen>
+    <dimen name="text_size_paragraph3">13.0sp</dimen>
 </resources>

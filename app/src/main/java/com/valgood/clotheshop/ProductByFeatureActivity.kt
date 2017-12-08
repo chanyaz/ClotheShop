@@ -6,7 +6,7 @@ import android.view.Menu
 import android.widget.ImageView
 import com.mikepenz.fontawesome_typeface_library.FontAwesome
 import com.mikepenz.iconics.IconicsDrawable
-import com.valgood.clotheshop.ui.custom.ProductGridView
+import com.valgood.clotheshop.ui.custom.ProductVerticalGridView
 import com.valgood.clotheshop.utils.PRODUCT_DESCRIPTION_KEY
 import com.valgood.clotheshop.utils.PRODUCT_NAME_KEY
 
@@ -20,7 +20,7 @@ class ProductByFeatureActivity : AppCompatActivity() {
         setContentView(R.layout.activity_product_by_feature)
         setupToolbar()
         //setupTabs()
-        mainContent.addView(ProductGridView(this))
+        mainContent.addView(ProductVerticalGridView(this))
     }
 
     private fun setupToolbar() {
@@ -59,7 +59,7 @@ class ProductByFeatureActivity : AppCompatActivity() {
     }
 
     override fun onBackPressed() {
-        finish()
         super.onBackPressed()
+        finish()
     }
 }

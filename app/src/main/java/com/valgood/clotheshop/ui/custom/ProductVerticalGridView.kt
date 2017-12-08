@@ -19,7 +19,7 @@ import java.util.ArrayList
 /**
  * Specific Implementation for the Product Grid View
  */
-class ProductGridView(context: Context) : GridView(context) {
+class ProductVerticalGridView(context: Context) : GridView(context) {
     init {
         numColumns = GridView.AUTO_FIT
         clipToPadding = false
@@ -57,13 +57,12 @@ class ProductGridView(context: Context) : GridView(context) {
      * @param data
      */
     private fun processResponse(data: ProductResponse) {
-        var localAdapter = ProductGridViewAdapter(context, ArrayList())
-        if (data.code == Constants.Companion.SUCCESS_CODE) {
-            localAdapter.setGridData(data.products as MutableList<Product>)
-        } else {
-            //set error in toast
+        adapter = when(data.code) {
+            Constants.Companion.SUCCESS_CODE -> {
+                ProductGridViewAdapter(context, data.products as ArrayList<Product>)
+            } else -> {
+                ProductGridViewAdapter(context, ArrayList())
+            }
         }
-
-        adapter = localAdapter
     }
 }

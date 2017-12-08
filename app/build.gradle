@@ -45,9 +45,10 @@ dependencies {
     compile rootProject.ext.googleMaterialTypeFace
     compile rootProject.ext.fontAwesome
     compile rootProject.ext.hockeyApp
-    compile 'com.github.ybq:parallaxviewpager:2.0.0'
-    compile 'net.cachapa.expandablelayout:expandablelayout:2.9.2'
-    compile 'me.mvdw.recyclerviewmergeadapter:recyclerviewmergeadapter:2.0.0'
+    compile rootProject.ext.parallaxViewPager
+    compile rootProject.ext.expandableLayout
+    compile rootProject.ext.recyclerViewMergeAdapter
+    compile 'com.android.support:leanback-v17:25.4.0'
     testCompile rootProject.ext.junit
     compile project(':backendless')
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
